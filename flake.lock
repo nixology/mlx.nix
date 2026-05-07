@@ -145,16 +145,16 @@
     "mlx-lm": {
       "flake": false,
       "locked": {
-        "lastModified": 1775524055,
-        "narHash": "sha256-Ujt0KMs4dzIlbg7cg72TudAvlwJ4uWEG5Lx7+5j8cOU=",
+        "lastModified": 1776843249,
+        "narHash": "sha256-DPOJfsIucG8mWt4ZKenymCJo/i9Jw+a+iuIygIIYkA8=",
         "owner": "ml-explore",
         "repo": "mlx-lm",
-        "rev": "dcbf6e33d135a1b7c6767ca0fe7ebbd23df814a7",
+        "rev": "ed1fca4cef15a824c5f1702c80f70b4cffc8e4dd",
         "type": "github"
       },
       "original": {
         "owner": "ml-explore",
-        "ref": "v0.31.2",
+        "ref": "v0.31.3",
         "repo": "mlx-lm",
         "type": "github"
       }

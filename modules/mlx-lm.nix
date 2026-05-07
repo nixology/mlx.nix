@@ -10,7 +10,10 @@ in
   perSystem =
     { config, pkgs, ... }:
     {
-      packages.llm = config.legacyPackages.llmWithPlugins;
+      packages = {
+        llm = config.legacyPackages.llmWithPlugins;
+        mlx-lm = config.legacyPackages.python3.pkgs.mlx-lm;
+      };
 
       overlayAttrs = {
         llmWithPlugins = pkgs.python3.withPackages (

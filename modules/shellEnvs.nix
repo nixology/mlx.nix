@@ -37,8 +37,9 @@
         packages = with pkgs; [
           (python3.withPackages (
             ps: with ps; [
-              setuptools
+              huggingface-hub
               pip
+              setuptools
             ]
           ))
         ];
