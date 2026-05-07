@@ -108,6 +108,23 @@
         "url": "ssh://git@github.com/marksisson/flake"
       }
     },
+    "llm-mlx": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745430370,
+        "narHash": "sha256-9SGbvhuNeKgMYGa0ZiOLm+H/JbNpvFWBcUL4De5xO4o=",
+        "owner": "simonw",
+        "repo": "llm-mlx",
+        "rev": "b477833b807143241220f6561742833070d907cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "simonw",
+        "ref": "0.4",
+        "repo": "llm-mlx",
+        "type": "github"
+      }
+    },
     "mlx": {
       "flake": false,
       "locked": {
@@ -122,6 +139,23 @@
         "owner": "ml-explore",
         "ref": "v0.31.2",
         "repo": "mlx",
+        "type": "github"
+      }
+    },
+    "mlx-lm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775524055,
+        "narHash": "sha256-Ujt0KMs4dzIlbg7cg72TudAvlwJ4uWEG5Lx7+5j8cOU=",
+        "owner": "ml-explore",
+        "repo": "mlx-lm",
+        "rev": "dcbf6e33d135a1b7c6767ca0fe7ebbd23df814a7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ml-explore",
+        "ref": "v0.31.2",
+        "repo": "mlx-lm",
         "type": "github"
       }
     },
@@ -158,7 +192,9 @@
     "root": {
       "inputs": {
         "flake": "flake",
+        "llm-mlx": "llm-mlx",
         "mlx": "mlx",
+        "mlx-lm": "mlx-lm",
         "xcode": "xcode"
       }
     },

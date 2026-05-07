@@ -14,18 +14,6 @@ jobs:
       id-token: write
 
     steps:
-      - name: check metal
-        run: |
-          xcodebuild -version
-          xcrun -f metal
-          xcrun metal -v
-          echo $DEVELOPER_DIR
-          ls -l /Applications
-          sudo rm -f /Applications/Xcode.app
-          sudo mv /Applications/Xcode_26.2.app /Applications/Xcode.app
-          ls -l /Applications
-          xcodebuild -downloadComponent MetalToolchain
-
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
@@ -38,5 +26,5 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@b4a9864e3a8ab8179be30f2e70fd71fe9996bb9d # main
 
       - name: Run nix build
-        run: nix build
+        run: nix build .#mlx
 
