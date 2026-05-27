@@ -1,10 +1,10 @@
 { config, ... }:
 {
   perSystem =
-    { pkgs, ... }:
+    { pkgs, system, ... }:
     {
       legacyPackages = import pkgs.path {
-        inherit (pkgs.stdenv.hostPlatform) system;
+        inherit system;
         config = { };
         overlays = [ config.flake.overlays.default ];
       };

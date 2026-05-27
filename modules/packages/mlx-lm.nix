@@ -1,34 +1,47 @@
 { inputs, ... }:
 let
-  flakeText = builtins.replaceStrings [ "\n" ] [ " " ] (builtins.readFile "${inputs.self}/flake.nix");
+  getNode =
+    input:
+    let
+      lock = builtins.fromJSON (builtins.readFile "${inputs.self}/flake.lock");
+      node = builtins.getAttr "${input}" lock.nodes;
+    in
+    node;
 
-  mlxLmRef = builtins.elemAt (builtins.match ".*inputs\\.mlx-lm\\.url[[:space:]]*=[[:space:]]*\"github:ml-explore/mlx-lm/([^\"]+)\";.*" flakeText) 0;
+  getOriginalNode = input: (getNode input).original;
 
-  mlxLmVersion = builtins.substring 1 ((builtins.stringLength mlxLmRef) - 1) mlxLmRef;
+  inputName =
+    input: builtins.head (builtins.filter (name: inputs.${name} == input) (builtins.attrNames inputs));
+
+  pname = inputName src;
+
+  src = inputs.mlx-lm;
+
+  version =
+    let
+      ref = (getOriginalNode pname).ref;
+    in
+    if builtins.substring 0 1 ref == "v" then
+      builtins.substring 1 ((builtins.stringLength ref) - 1) ref
+    else
+      ref;
 in
 {
   perSystem =
     { config, pkgs, ... }:
+    let
+      python = pkgs.python3;
+    in
     {
       packages = {
-        llm = config.legacyPackages.llmWithPlugins;
         mlx-lm = config.legacyPackages.python3.pkgs.mlx-lm;
       };
 
       overlayAttrs = {
-        llmWithPlugins = pkgs.python3.withPackages (
-          ps: with ps; [
-            llm
-            llm-ollama
-            llm-gguf
-            config.packages.llm-mlx
-          ]
-        );
-
-        python3 = pkgs.python3.override {
+        python3 = python.override {
           packageOverrides = pythonFinal: pythonPrev: {
             mlx-lm = pythonPrev.mlx-lm.overrideAttrs (_oldAttrs: {
-              version = mlxLmVersion;
+              inherit version;
 
               src = inputs.mlx-lm;
 
@@ -47,6 +60,7 @@ in
                 jinja2
               ];
 
+              # NOTE: need metal compiler to check mlx_lm python import
               pythonImportsCheck = [ ];
             });
 

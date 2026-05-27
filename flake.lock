@@ -5,29 +5,11 @@
         "flake-parts": "flake-parts"
       },
       "locked": {
-        "lastModified": 1777814889,
-        "narHash": "sha256-U64t9T1YK4RQdwcQsdtFfy+0X4wQcKmAtMWgpsIP6ZA=",
+        "lastModified": 1779785819,
+        "narHash": "sha256-8Q6m6Iyf2hvotSimNdkamK9BhvaroIxrDLgp9yVkj04=",
         "owner": "nixology",
         "repo": "core.nix",
-        "rev": "756737f18aca2b9b1fb217cb625c1a5a336f2dcf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixology",
-        "repo": "core.nix",
-        "type": "github"
-      }
-    },
-    "core_2": {
-      "inputs": {
-        "flake-parts": "flake-parts_2"
-      },
-      "locked": {
-        "lastModified": 1777814889,
-        "narHash": "sha256-U64t9T1YK4RQdwcQsdtFfy+0X4wQcKmAtMWgpsIP6ZA=",
-        "owner": "nixology",
-        "repo": "core.nix",
-        "rev": "756737f18aca2b9b1fb217cb625c1a5a336f2dcf",
+        "rev": "8ac1bb9336c239333189b8a1bad1c0f1ee1353c9",
         "type": "github"
       },
       "original": {
@@ -41,11 +23,11 @@
         "core": "core"
       },
       "locked": {
-        "lastModified": 1777823545,
-        "narHash": "sha256-xsck9PDsrmnitL+Wgi9KDL2kGzUuVGuRxAZt4X8lfSY=",
+        "lastModified": 1779803767,
+        "narHash": "sha256-i1A1m/4t7QnwwxAolreXR/hmFj8clFcvwDXCIW23qmg=",
         "owner": "nixology",
         "repo": "flake.nix",
-        "rev": "85221ef9d5a77942354fa5b217bed6ddbefa32ae",
+        "rev": "908f2ca9755dfc81c392412f18965208b378bc48",
         "type": "github"
       },
       "original": {
@@ -59,53 +41,17 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1775087534,
-        "narHash": "sha256-91qqW8lhL7TLwgQWijoGBbiD4t7/q75KTi8NxjVmSmA=",
+        "lastModified": 1778716662,
+        "narHash": "sha256-m1Yf0wZ8j1OHjTc2UwHwyQRSnNeSgLJOd7q5Y45hzi4=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "3107b77cd68437b9a76194f0f7f9c55f2329ca5b",
+        "rev": "f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb",
         "type": "github"
       },
       "original": {
         "owner": "hercules-ci",
         "repo": "flake-parts",
         "type": "github"
-      }
-    },
-    "flake-parts_2": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib_2"
-      },
-      "locked": {
-        "lastModified": 1775087534,
-        "narHash": "sha256-91qqW8lhL7TLwgQWijoGBbiD4t7/q75KTi8NxjVmSmA=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "3107b77cd68437b9a76194f0f7f9c55f2329ca5b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "flake_2": {
-      "inputs": {
-        "core": "core_2"
-      },
-      "locked": {
-        "lastModified": 1777823545,
-        "narHash": "sha256-xsck9PDsrmnitL+Wgi9KDL2kGzUuVGuRxAZt4X8lfSY=",
-        "ref": "refs/heads/main",
-        "rev": "85221ef9d5a77942354fa5b217bed6ddbefa32ae",
-        "revCount": 103,
-        "type": "git",
-        "url": "ssh://git@github.com/marksisson/flake"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/marksisson/flake"
       }
     },
     "llm-mlx": {
@@ -161,26 +107,11 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1774748309,
-        "narHash": "sha256-+U7gF3qxzwD5TZuANzZPeJTZRHS29OFQgkQ2kiTJBIQ=",
+        "lastModified": 1777168982,
+        "narHash": "sha256-GOkGPcboWE9BmGCRMLX3worL4EMnsnG8MyKmXNeYuhQ=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "333c4e0545a6da976206c74db8773a1645b5870a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
-    "nixpkgs-lib_2": {
-      "locked": {
-        "lastModified": 1774748309,
-        "narHash": "sha256-+U7gF3qxzwD5TZuANzZPeJTZRHS29OFQgkQ2kiTJBIQ=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "333c4e0545a6da976206c74db8773a1645b5870a",
+        "rev": "f5901329dade4a6ea039af1433fb087bd9c1fe14",
         "type": "github"
       },
       "original": {
@@ -195,25 +126,23 @@
         "llm-mlx": "llm-mlx",
         "mlx": "mlx",
         "mlx-lm": "mlx-lm",
-        "xcode": "xcode"
+        "unsloth--Qwen3_6-27B-MLX-8bit": "unsloth--Qwen3_6-27B-MLX-8bit"
       }
     },
-    "xcode": {
-      "inputs": {
-        "flake": "flake_2"
-      },
+    "unsloth--Qwen3_6-27B-MLX-8bit": {
+      "flake": false,
       "locked": {
-        "lastModified": 1778016332,
-        "narHash": "sha256-TXH48jTzVCvO3HAdMqGmq6/vgTsOxpWRXSajwhaUjyY=",
-        "owner": "nixology",
-        "repo": "xcode.nix",
-        "rev": "fb5467d8e18e990d6f5614a5fdbc6ac34be89217",
-        "type": "github"
+        "lastModified": 1776867520,
+        "narHash": "sha256-OSeRG95pSri8kdRKzM4fmTj7wo5Z37h9OiwMeJl4Dy4=",
+        "ref": "refs/heads/main",
+        "rev": "78067073d2bf9795e5aabcfcd647bd36cf43c0b5",
+        "revCount": 2,
+        "type": "git",
+        "url": "https://huggingface.co/unsloth/Qwen3.6-27B-MLX-8bit"
       },
       "original": {
-        "owner": "nixology",
-        "repo": "xcode.nix",
-        "type": "github"
+        "type": "git",
+        "url": "https://huggingface.co/unsloth/Qwen3.6-27B-MLX-8bit"
       }
     }
   },

@@ -12,7 +12,6 @@ let
         nixology.flake.overlays
         nixology.flake.packages
         nixology.flake.legacyPackages
-        nixology.channels.unfree
         nixology.systems.default-darwin
         nixology.tools.treefmt
       ];
