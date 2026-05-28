@@ -4,6 +4,9 @@
     { lib, pkgs, ... }:
     with pkgs;
     let
+      flakeLib = inputs.flake.lib.forFlake inputs.self;
+      metadata = flakeLib.metadataForInput inputs.mlx;
+
       python = pkgs.python3;
       pythonVersionMajorMinorCompact =
         lib.versions.major python.version + lib.versions.minor python.version;
@@ -11,43 +14,18 @@
         lib.versions.major python.version + "." + lib.versions.minor python.version;
       pythonVersionMajor = lib.versions.major python.version;
 
-      getNode =
-        input:
-        let
-          lock = builtins.fromJSON (builtins.readFile "${inputs.self}/flake.lock");
-          node = builtins.getAttr "${input}" lock.nodes;
-        in
-        node;
-
-      getOriginalNode = input: (getNode input).original;
-
-      inputName =
-        input: builtins.head (builtins.filter (name: inputs.${name} == input) (builtins.attrNames inputs));
-
-      pname = inputName src;
-
-      src = inputs.mlx;
-
-      version =
-        let
-          ref = (getOriginalNode pname).ref;
-        in
-        if builtins.substring 0 1 ref == "v" then
-          builtins.substring 1 ((builtins.stringLength ref) - 1) ref
-        else
-          ref;
-
       format = "wheel";
       platform = "macosx_26_0_arm64";
 
       backend = python.pkgs.buildPythonPackage {
-        pname = "${pname}_metal";
-        inherit version format;
+        pname = "${metadata.pname}_metal";
+        inherit (metadata) version;
+        inherit format;
 
         src = fetchPypi {
-          pname = "${pname}_metal";
+          pname = "${metadata.pname}_metal";
+          inherit (metadata) version;
           inherit
-            version
             format
             platform
             ;
@@ -62,9 +40,9 @@
     in
     {
       packages = {
-        ${pname} = python.pkgs.buildPythonPackage rec {
-          inherit pname;
-          inherit version format;
+        ${metadata.pname} = python.pkgs.buildPythonPackage rec {
+          inherit (metadata) pname version;
+          inherit format;
 
           src = fetchPypi {
             inherit
