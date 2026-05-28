@@ -14,8 +14,7 @@
         llmWithPlugins = python.withPackages (
           ps: with ps; [
             llm
-            llm-ollama
-            llm-gguf
+            llm-github-copilot
             config.packages.llm-mlx
           ]
         );
