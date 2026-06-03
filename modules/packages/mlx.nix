@@ -4,8 +4,8 @@
     { lib, pkgs, ... }:
     with pkgs;
     let
-      flakeLib = inputs.flake.lib.forFlake inputs.self;
-      metadata = flakeLib.metadataForInput inputs.mlx;
+      flakeLib = inputs.flake.lib;
+      metadata = flakeLib.metadataForFlakeInput inputs.self inputs.mlx;
 
       python = pkgs.python3;
       pythonVersionMajorMinorCompact =

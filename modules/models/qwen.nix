@@ -1,7 +1,7 @@
 { inputs, ... }:
 let
-  flakeLib = inputs.flake.lib.forFlake inputs.self;
-  metadata = flakeLib.metadataForInput inputs.unsloth--Qwen3_6-27B-MLX-8bit;
+  flakeLib = inputs.flake.lib;
+  metadata = flakeLib.metadataForFlakeInput inputs.self inputs.unsloth--Qwen3_6-27B-MLX-8bit;
 in
 {
   perSystem =

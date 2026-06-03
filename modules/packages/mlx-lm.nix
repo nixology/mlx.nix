@@ -1,7 +1,7 @@
 { inputs, ... }:
 let
-  flakeLib = inputs.flake.lib.forFlake inputs.self;
-  metadata = flakeLib.metadataForInput inputs.mlx-lm;
+  flakeLib = inputs.flake.lib;
+  metadata = flakeLib.metadataForFlakeInput inputs.self inputs.mlx-lm;
 in
 {
   perSystem =
