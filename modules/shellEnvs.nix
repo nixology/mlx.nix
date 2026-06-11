@@ -1,4 +1,3 @@
-{ ... }:
 {
   perSystem =
     {
@@ -34,6 +33,8 @@
           (python.withPackages (
             ps: with ps; [
               huggingface-hub
+              jupyterlab
+              notebook
               pip
               setuptools
             ]
