@@ -1,13 +1,12 @@
 { inputs, ... }:
+let
+  _mlx_ = inputs.flake.lib.metadataForFlakeInput inputs.self inputs.mlx;
+in
 {
   perSystem =
-    { lib, pkgs, ... }:
-    with pkgs;
+    { final, lib, ... }:
     let
-      flakeLib = inputs.flake.lib;
-      metadata = flakeLib.metadataForFlakeInput inputs.self inputs.mlx;
-
-      python = pkgs.python3;
+      python = final.python3;
       pythonVersionMajorMinorCompact =
         lib.versions.major python.version + lib.versions.minor python.version;
       pythonVersionMajorMinor =
@@ -18,13 +17,13 @@
       platform = "macosx_26_0_arm64";
 
       backend = python.pkgs.buildPythonPackage {
-        pname = "${metadata.pname}_metal";
-        inherit (metadata) version;
+        pname = "${_mlx_.pname}_metal";
+        inherit (_mlx_) version;
         inherit format;
 
-        src = fetchPypi {
-          pname = "${metadata.pname}_metal";
-          inherit (metadata) version;
+        src = python.pkgs.fetchPypi {
+          pname = "${_mlx_.pname}_metal";
+          inherit (_mlx_) version;
           inherit
             format
             platform
@@ -40,11 +39,11 @@
     in
     {
       packages = {
-        ${metadata.pname} = python.pkgs.buildPythonPackage rec {
-          inherit (metadata) pname version;
+        ${_mlx_.pname} = python.pkgs.buildPythonPackage rec {
+          inherit (_mlx_) pname version;
           inherit format;
 
-          src = fetchPypi {
+          src = final.fetchPypi {
             inherit
               pname
               version
@@ -58,7 +57,7 @@
           };
 
           nativeBuildInputs = [
-            fixDarwinDylibNames
+            final.fixDarwinDylibNames
           ];
 
           # After pip installs the mlx wheel, copy backend libraries
@@ -68,7 +67,7 @@
             cp -r "$libdir/lib" "$out/lib/python${pythonVersionMajorMinor}/site-packages/${pname}/"
           '';
 
-          postFixup = lib.optionalString stdenv.isDarwin ''
+          postFixup = lib.optionalString final.stdenv.isDarwin ''
             libdir="$out/lib/python${pythonVersionMajorMinor}/site-packages/${pname}"
 
             if [ -f "$libdir/lib/libmlx.dylib" ]; then
@@ -96,7 +95,7 @@
 
           meta = {
             platforms = lib.platforms.darwin;
-            broken = !stdenv.isDarwin || !stdenv.isAarch64;
+            broken = !final.stdenv.isDarwin || !final.stdenv.isAarch64;
           };
         };
       };

@@ -32,11 +32,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780452041,
-        "narHash": "sha256-NhQUXLGBqPl+z9XKM2NPUf8xksKGQdhOu5Hi8M5yeeg=",
+        "lastModified": 1781373888,
+        "narHash": "sha256-JvnA7kuRqU18hwYLZQQbNRZlb4MXObbEu1Fc67g6DL0=",
         "owner": "nixology",
         "repo": "core.nix",
-        "rev": "f27282aab52bf9c6e6b47b52407638fb11bbc9e4",
+        "rev": "c176e647e6d77bdc034bdb7f88901203e520f0de",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
         "core": "core"
       },
       "locked": {
-        "lastModified": 1780452157,
-        "narHash": "sha256-p1Flrt+Sr1ObKAJaFL/ByvI//v9FbgQXM/M73icT3w8=",
+        "lastModified": 1781373922,
+        "narHash": "sha256-KcRxJdaf9tredqdBeV2KduSDS/9I1AMM/ILqxXErvZo=",
         "owner": "nixology",
         "repo": "flake.nix",
-        "rev": "4df8f853118a15f471c70c2b989961a404127ab7",
+        "rev": "0e912c4b44cd7173611f7ebea663d4714f0ab6dd",
         "type": "github"
       },
       "original": {
@@ -78,23 +78,6 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "llm-mlx": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1745430370,
-        "narHash": "sha256-9SGbvhuNeKgMYGa0ZiOLm+H/JbNpvFWBcUL4De5xO4o=",
-        "owner": "simonw",
-        "repo": "llm-mlx",
-        "rev": "b477833b807143241220f6561742833070d907cc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "simonw",
-        "ref": "0.4",
-        "repo": "llm-mlx",
         "type": "github"
       }
     },
@@ -132,6 +115,53 @@
         "type": "github"
       }
     },
+    "models": {
+      "inputs": {
+        "flake": [
+          "flake"
+        ],
+        "nix-hug": "nix-hug",
+        "unsloth--Qwen3_6-27B-MLX-8bit": "unsloth--Qwen3_6-27B-MLX-8bit",
+        "unsloth--Qwen3_6-35B-A3B-MLX-8bit": "unsloth--Qwen3_6-35B-A3B-MLX-8bit"
+      },
+      "locked": {
+        "lastModified": 1781403259,
+        "narHash": "sha256-3XOKxQ+PM9RoELnimlUp2DsLhAk+42Y/Y9YJj541WYY=",
+        "owner": "nixology",
+        "repo": "models.nix",
+        "rev": "e8b3c9ef6bde074eea81b1027a06abb83fd39589",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixology",
+        "repo": "models.nix",
+        "type": "github"
+      }
+    },
+    "nix-hug": {
+      "inputs": {
+        "nixpkgs": [
+          "models",
+          "flake",
+          "core",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781378659,
+        "narHash": "sha256-pMVMUQaRTCsEscL+I5tPjxeDyCiX2KG9ttu4RRnnCxs=",
+        "owner": "marksisson",
+        "repo": "nix-hug",
+        "rev": "cfd663e6a36cb0a40b8e6724095814ca3804d933",
+        "type": "github"
+      },
+      "original": {
+        "owner": "marksisson",
+        "ref": "use-nixpkgs-fetchurl",
+        "repo": "nix-hug",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1779877693,
@@ -166,10 +196,9 @@
     "root": {
       "inputs": {
         "flake": "flake",
-        "llm-mlx": "llm-mlx",
         "mlx": "mlx",
         "mlx-lm": "mlx-lm",
-        "unsloth--Qwen3_6-27B-MLX-8bit": "unsloth--Qwen3_6-27B-MLX-8bit"
+        "models": "models"
       }
     },
     "unsloth--Qwen3_6-27B-MLX-8bit": {
@@ -186,6 +215,22 @@
       "original": {
         "type": "git",
         "url": "https://huggingface.co/unsloth/Qwen3.6-27B-MLX-8bit"
+      }
+    },
+    "unsloth--Qwen3_6-35B-A3B-MLX-8bit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776414385,
+        "narHash": "sha256-zzY7Lf1MYshSsj8RXyCL7J226GMJ2K4oMp6SXkEPYLY=",
+        "ref": "refs/heads/main",
+        "rev": "d928611c119d7d86037d6926ac50712062ff0f29",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://huggingface.co/unsloth/Qwen3.6-35B-A3b-MLX-8bit"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://huggingface.co/unsloth/Qwen3.6-35B-A3b-MLX-8bit"
       }
     }
   },

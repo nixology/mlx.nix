@@ -1,52 +1,31 @@
 { inputs, ... }:
 let
-  flakeLib = inputs.flake.lib;
-  metadata = flakeLib.metadataForFlakeInput inputs.self inputs.mlx-lm;
+  _mlx-lm_ = inputs.flake.lib.metadataForFlakeInput inputs.self inputs.mlx-lm;
 in
 {
   perSystem =
-    { config, pkgs, ... }:
-    let
-      inherit (metadata) pname;
-      python = pkgs.python3;
-    in
+    { final, pkgs, ... }:
     {
       packages = {
-        ${pname} = config.legacyPackages.python3.pkgs.${pname};
+        default = final.python3.pkgs.${_mlx-lm_.pname};
+
+        ${_mlx-lm_.pname} = pkgs.python3.pkgs.${_mlx-lm_.pname}.overrideAttrs (_oldAttrs: {
+          inherit (_mlx-lm_) src version;
+
+          propagatedBuildInputs = with final.python3.pkgs; [
+            jinja2
+            mlx
+            numpy
+            protobuf
+            pyyaml
+            sentencepiece
+            transformers
+          ];
+
+          # NOTE: need metal compiler to check mlx_lm python import
+          doInstallCheck = false;
+          pythonImportsCheck = [ ];
+        });
       };
-
-      overlayAttrs = {
-        python3 = python.override {
-          packageOverrides = pythonFinal: pythonPrev: {
-            ${pname} = pythonPrev.${pname}.overrideAttrs (_oldAttrs: {
-              inherit (metadata) src version;
-
-              # Do not seem to work reliably on GH CI
-              doCheck = false;
-              doInstallCheck = false;
-              disabledTestPaths = [ ];
-
-              propagatedBuildInputs = with pythonFinal; [
-                sentencepiece
-                mlx
-                numpy
-                transformers
-                protobuf
-                pyyaml
-                jinja2
-              ];
-
-              # NOTE: need metal compiler to check mlx_lm python import
-              pythonImportsCheck = [ ];
-            });
-
-            mlx = config.packages.mlx;
-          };
-        };
-
-        # Update python3Packages to use the newly overridden python3
-        python3Packages = config.overlayAttrs.python3.pkgs;
-      };
-
     };
 }

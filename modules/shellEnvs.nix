@@ -1,8 +1,8 @@
-{ ... }:
 {
   perSystem =
     {
       config,
+      inputs',
       lib,
       pkgs,
       ...
@@ -27,13 +27,17 @@
             fi
 
             source "${venvDir}/bin/activate"
+
+            export HF_HUB_CACHE=${inputs'.models.packages.cache}
+            export TRANSFORMERS_OFFLINE=1
           '';
         packages = [
-          config.packages.llm
           config.packages.mlx-lm
           (python.withPackages (
             ps: with ps; [
               huggingface-hub
+              jupyterlab
+              notebook
               pip
               setuptools
             ]
