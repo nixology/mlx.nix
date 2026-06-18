@@ -1,47 +1,111 @@
 {
   "nodes": {
-    "channel": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
+    "Qwen--Qwen2_5-0_5B": {
+      "flake": false,
       "locked": {
-        "dir": "nixpkgs-unstable",
-        "lastModified": 1780057569,
-        "narHash": "sha256-biZ0tFQGwLbv9DQmJ6BFkNjZq+rrlsHAunnbCSxPi9c=",
-        "owner": "nixology",
-        "repo": "channels.nix",
-        "rev": "82145274e655c9dfd52ac50fee58a085a4f8cdce",
+        "lastModified": 1727267556,
+        "narHash": "sha256-BjYP2cg7vXSX1ljF2/YEr1Kq/nokWqUrni8Nm+2t19g=",
+        "ref": "refs/heads/main",
+        "rev": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "revCount": 12,
+        "type": "git",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B"
+      }
+    },
+    "Qwen--Qwen2_5-1_5B-Instruct": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727267570,
+        "narHash": "sha256-61+m6ZCMph5mbUUGZuDfO+Tdq7VMFM5Q5qnh5dCxego=",
+        "ref": "refs/heads/main",
+        "rev": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "revCount": 8,
+        "type": "git",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct"
+      }
+    },
+    "Qwen--Qwen3-0_6B": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1753501587,
+        "narHash": "sha256-BWSQkHRRZJ+1/J5FgQ1j6FVpIp4BQmTEtfGr7GeDRtc=",
+        "ref": "refs/heads/main",
+        "rev": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "revCount": 24,
+        "type": "git",
+        "url": "https://huggingface.co/Qwen/Qwen3-0.6B"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://huggingface.co/Qwen/Qwen3-0.6B"
+      }
+    },
+    "channel": {
+      "locked": {
+        "lastModified": 1781607440,
+        "narHash": "sha256-rxO+uc/KFbSJp+pgyXRuAX6QlG9hJdnt0BXpEQRXY+U=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3e41b24abd260e8f71dbe2f5737d24122f972158",
         "type": "github"
       },
       "original": {
-        "dir": "nixpkgs-unstable",
-        "owner": "nixology",
-        "repo": "channels.nix",
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
     "core": {
       "inputs": {
-        "channel": "channel",
+        "default": "default",
         "flake-parts": "flake-parts",
         "nixpkgs": [
           "flake",
           "core",
-          "channel",
-          "nixpkgs"
+          "default",
+          "channel"
         ]
       },
       "locked": {
-        "lastModified": 1781373888,
-        "narHash": "sha256-JvnA7kuRqU18hwYLZQQbNRZlb4MXObbEu1Fc67g6DL0=",
+        "lastModified": 1782519806,
+        "narHash": "sha256-cYBaxIhzVDyyHoKW+/Z0hAsBb4GrJ/Ug1TVMvw1/QJo=",
         "owner": "nixology",
         "repo": "core.nix",
-        "rev": "c176e647e6d77bdc034bdb7f88901203e520f0de",
+        "rev": "bca999191963b1198f190aa135b458a623f46456",
         "type": "github"
       },
       "original": {
         "owner": "nixology",
         "repo": "core.nix",
+        "type": "github"
+      }
+    },
+    "default": {
+      "inputs": {
+        "channel": "channel"
+      },
+      "locked": {
+        "dir": "nixpkgs-unstable",
+        "lastModified": 1781798631,
+        "narHash": "sha256-TFnCx40VNHLwA+gS3Tb6HW7do3aZijyVp/H2FV4rSz4=",
+        "owner": "nixology",
+        "repo": "channels.nix",
+        "rev": "01b2cfe422ec424fdfa4312a1655f2bd4ac7b326",
+        "type": "github"
+      },
+      "original": {
+        "dir": "nixpkgs-unstable",
+        "owner": "nixology",
+        "repo": "channels.nix",
         "type": "github"
       }
     },
@@ -50,11 +114,11 @@
         "core": "core"
       },
       "locked": {
-        "lastModified": 1781373922,
-        "narHash": "sha256-KcRxJdaf9tredqdBeV2KduSDS/9I1AMM/ILqxXErvZo=",
+        "lastModified": 1782519886,
+        "narHash": "sha256-DFe1tjKod/8HGjxdxdAugoOc8ICVgpc80ePwHr+GHd8=",
         "owner": "nixology",
         "repo": "flake.nix",
-        "rev": "0e912c4b44cd7173611f7ebea663d4714f0ab6dd",
+        "rev": "69b1f4112cf3ff4848e2323cc6034d9d501cad6e",
         "type": "github"
       },
       "original": {
@@ -79,6 +143,22 @@
         "owner": "hercules-ci",
         "repo": "flake-parts",
         "type": "github"
+      }
+    },
+    "google--gemma-3-1b-it": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743772360,
+        "narHash": "sha256-bbkUcq11f4U6bwV1N63IdrG5qLxHEoAV0FOjcCbItf4=",
+        "ref": "refs/heads/main",
+        "rev": "dcc83ea841ab6100d6b47a070329e1ba4cf78752",
+        "revCount": 7,
+        "type": "git",
+        "url": "https://huggingface.co/google/gemma-3-1b-it"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://huggingface.co/google/gemma-3-1b-it"
       }
     },
     "mlx": {
@@ -117,19 +197,27 @@
     },
     "models": {
       "inputs": {
+        "Qwen--Qwen2_5-0_5B": "Qwen--Qwen2_5-0_5B",
+        "Qwen--Qwen2_5-1_5B-Instruct": "Qwen--Qwen2_5-1_5B-Instruct",
+        "Qwen--Qwen3-0_6B": "Qwen--Qwen3-0_6B",
         "flake": [
           "flake"
         ],
+        "google--gemma-3-1b-it": "google--gemma-3-1b-it",
         "nix-hug": "nix-hug",
         "unsloth--Qwen3_6-27B-MLX-8bit": "unsloth--Qwen3_6-27B-MLX-8bit",
-        "unsloth--Qwen3_6-35B-A3B-MLX-8bit": "unsloth--Qwen3_6-35B-A3B-MLX-8bit"
+        "unsloth--Qwen3_6-35B-A3B-MLX-8bit": "unsloth--Qwen3_6-35B-A3B-MLX-8bit",
+        "yujiepan--gemma-3-tiny-random": "yujiepan--gemma-3-tiny-random",
+        "yujiepan--mistral-v0_3-tiny-random": "yujiepan--mistral-v0_3-tiny-random",
+        "yujiepan--qwen2_5-tiny-random": "yujiepan--qwen2_5-tiny-random",
+        "yujiepan--qwen3-tiny-random": "yujiepan--qwen3-tiny-random"
       },
       "locked": {
-        "lastModified": 1781403259,
-        "narHash": "sha256-3XOKxQ+PM9RoELnimlUp2DsLhAk+42Y/Y9YJj541WYY=",
+        "lastModified": 1782049568,
+        "narHash": "sha256-EWK/n2bsduxqX3Mkw5LXj1mbovRIPsxWBUKFD9mu5Hs=",
         "owner": "nixology",
         "repo": "models.nix",
-        "rev": "e8b3c9ef6bde074eea81b1027a06abb83fd39589",
+        "rev": "d95a26a0fce17d12fdb58dd7dafee18ba0b162c1",
         "type": "github"
       },
       "original": {
@@ -148,33 +236,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1781378659,
-        "narHash": "sha256-pMVMUQaRTCsEscL+I5tPjxeDyCiX2KG9ttu4RRnnCxs=",
+        "lastModified": 1781967748,
+        "narHash": "sha256-RJams51fGsTUHKRuQYcfzVbLeGD7aBcKj3RFGD51XYQ=",
         "owner": "marksisson",
         "repo": "nix-hug",
-        "rev": "cfd663e6a36cb0a40b8e6724095814ca3804d933",
+        "rev": "61249e3f631b134c790e1a07f319cc32a79c5532",
         "type": "github"
       },
       "original": {
         "owner": "marksisson",
-        "ref": "use-nixpkgs-fetchurl",
+        "ref": "marksisson/add-fetchurl-curl-opts",
         "repo": "nix-hug",
-        "type": "github"
-      }
-    },
-    "nixpkgs": {
-      "locked": {
-        "lastModified": 1779877693,
-        "narHash": "sha256-NOF9NAREhxr50bbBfVcVOq+ArCMSoe8dP79Pk2uyARk=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "4100e830e085863741bc69b156ec4ccd53ab5be0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -231,6 +303,70 @@
       "original": {
         "type": "git",
         "url": "https://huggingface.co/unsloth/Qwen3.6-35B-A3b-MLX-8bit"
+      }
+    },
+    "yujiepan--gemma-3-tiny-random": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742061357,
+        "narHash": "sha256-HjMy9d4fYcvpsZkUmXOyLklw5FPMUNdWGnlrAnc9Zvo=",
+        "ref": "refs/heads/main",
+        "rev": "f746b7ca8ef1ae9ba057354188bfcce0c788d674",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://huggingface.co/yujiepan/gemma-3-tiny-random"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://huggingface.co/yujiepan/gemma-3-tiny-random"
+      }
+    },
+    "yujiepan--mistral-v0_3-tiny-random": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721488222,
+        "narHash": "sha256-+LQgdRJAbA4jz7fyJ9Z7FGQ5yVueEXkWSQi+E9lQO1c=",
+        "ref": "refs/heads/main",
+        "rev": "7d912a02c3e39ec05b60171988f08335f52d2745",
+        "revCount": 8,
+        "type": "git",
+        "url": "https://huggingface.co/yujiepan/mistral-v0.3-tiny-random"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://huggingface.co/yujiepan/mistral-v0.3-tiny-random"
+      }
+    },
+    "yujiepan--qwen2_5-tiny-random": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727064806,
+        "narHash": "sha256-GumEXYT9E4ysSKIXE34/Rk6rJL4OPX4z+ENBWwoiMJg=",
+        "ref": "refs/heads/main",
+        "rev": "0354728bb14944308c3134cf48d29302030a72c0",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://huggingface.co/yujiepan/qwen2.5-tiny-random"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://huggingface.co/yujiepan/qwen2.5-tiny-random"
+      }
+    },
+    "yujiepan--qwen3-tiny-random": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745905839,
+        "narHash": "sha256-X5IGZXGgxaEbpQXtcMp1te/CgjQsddCE7h+rj89bND8=",
+        "ref": "refs/heads/main",
+        "rev": "c5aa03d329380306bf4890b3715fecf0982efd52",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://huggingface.co/yujiepan/qwen3-tiny-random"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://huggingface.co/yujiepan/qwen3-tiny-random"
       }
     }
   },
